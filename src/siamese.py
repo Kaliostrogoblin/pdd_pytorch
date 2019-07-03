@@ -42,6 +42,30 @@ class TwinNetwork(nn.Module):
         return output
 
 
+class TransferTwinNetwork(nn.Module):
+    '''Feature extractor'''
+    def __init__(self, 
+                 base_model, 
+                 output_dim=1024, 
+                 base_model_dim=1280):
+        super(TransferTwinNetwork, self).__init__()
+        self.base_model = base_model
+        self.output_dim = output_dim
+        self.global_pool = nn.AdaptiveAvgPool2d(1)
+        self.fc = nn.Sequential(
+            nn.Linear(base_model_dim, self.output_dim),
+            nn.ReLU())
+        
+    def forward(self, x):
+        x = self.base_model(x)
+        # flatten
+        #x = x.view(x.size()[0], -1)
+        x = self.global_pool(x)
+        x = x.view(x.size()[0], -1)
+        output = self.fc(x)
+        return output
+
+
 class SiameseNetwork(nn.Module):
     def __init__(self, twin_net):
         super(SiameseNetwork, self).__init__()
