@@ -1,0 +1,8 @@
+md5: f3228131fc7e0e42513df717c2bc47e0
+wdir: .
+outs:
+- md5: 9f0030035faddebe2ccc24a6b6ec8d28
+  path: archive_full.zip
+  cache: true
+  metric: false
+  persist: false
