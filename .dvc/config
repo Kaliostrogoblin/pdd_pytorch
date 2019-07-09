@@ -1,0 +1,4 @@
+['remote "remote"']
+url = ssh://pgonchar@hydra.jinr.ru:/nfs/store2.jinr.ru/user/p/pgonchar/dvc-storage/pdd_pytorch
+user = pgonchar
+ask_password = true
