@@ -1,0 +1,14 @@
+md5: 504e020fe5ee23b9cdcca74274d2e29a
+cmd: python3 src/train.py
+wdir: .
+deps:
+- md5: 536870874429b012763693accc4de493
+  path: src/train.py
+- md5: 9f0030035faddebe2ccc24a6b6ec8d28
+  path: archive_full.zip
+outs:
+- md5: 45a169de0d3b58bd35d72c13de3caec8
+  path: models/twin.pt
+  cache: true
+  metric: false
+  persist: false
